@@ -4,8 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     app:cardCornerRadius="8dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     app:cardBackgroundColor="@color/graylight"
     android:padding="5dp"
     android:layout_height="wrap_content">
