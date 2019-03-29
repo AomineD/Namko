@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "875817574041",
+    "firebase_url": "https://namko-chat.firebaseio.com",
+    "project_id": "namko-chat",
+    "storage_bucket": "namko-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875817574041:android:437b1aebc0efa9b1",
+        "android_client_info": {
+          "package_name": "com.app.namkchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875817574041-8ukpjlrjolq81df6uuk7dha9vgb38lti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA62pWI0fgCXRAyxGeDpcB_V11in1nbRh0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
