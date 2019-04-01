@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         fr.setNameP("Diego Garcia");
         fr.setLang_chat("Latino");
         fr.setUrrPhoto("http://chittagongit.com//images/avatar-icon/avatar-icon-4.jpg");
-
+fr.setDebg(true);
         fragmentManager.beginTransaction().replace(R.id.frg, fr).commitAllowingStateLoss();
 
     }
