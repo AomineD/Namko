@@ -5,11 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -193,7 +195,7 @@ lang_c = v.findViewById(R.id.channel);
 
         lang_c.setText(lang_chat);
 
-
+getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         return v;
     }
@@ -213,7 +215,7 @@ lang_c = v.findViewById(R.id.channel);
     private EditText message;
     private CircleImageView profile_pic;
     private TextView profile_name;
-    private Button send_msg;
+    private FloatingActionButton send_msg;
     private MessageAdapter adapter;
 
     private FirebaseDatabase database;
