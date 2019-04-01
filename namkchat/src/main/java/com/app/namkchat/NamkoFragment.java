@@ -162,7 +162,8 @@ lang_c = v.findViewById(R.id.channel);
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference(lang_chat);
-
+        if(isDebug)
+        Log.e("MAIN", "onCreateView: CHAT => "+lang_chat+" BASE DE DATOS => "+databaseReference.getRef().toString());
         adapter = new MessageAdapter(getContext(), messageArrayList);
 
 
@@ -218,11 +219,16 @@ getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT
     private FloatingActionButton send_msg;
     private MessageAdapter adapter;
 
+
+    private boolean isDebug = false;
+
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
     private ArrayList<MessageReceive> messageArrayList = new ArrayList<>();
 
-
+public void setDebg (boolean ss){
+    isDebug = ss;
+}
 
 
 
@@ -238,6 +244,10 @@ getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT
 
                    m.setMesg(transform(m.getMesg()));
 
+                }
+
+                if(isDebug){
+                    Log.e("MAIN", "onChildAdded: m es null = "+(m!=null)+(" mensaje  = ") + (m!=null ? m.getMesg(): "ES NULL PAPA"));
                 }
 
                 adapter.addMessage(m);
@@ -283,7 +293,8 @@ if(isRudness(men)){
         mss.setType_mensaje("1");
 message.setText("");
         databaseReference.push().setValue(mss);
-
+        if(isDebug)
+        Log.e("MAIN", "SendMessage: MENSAJE ENVIADO = "+mss);
         //adapter.addMessage(mss);
     }
 
