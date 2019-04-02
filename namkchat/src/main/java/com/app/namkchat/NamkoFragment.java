@@ -46,6 +46,16 @@ public class NamkoFragment extends Fragment {
     }
 
 
+    public interface OnClickingSend{
+        void OnSend();
+    }
+
+    private OnClickingSend clikS;
+
+    public void setClickSendListener(OnClickingSend sendListener){
+        clikS = sendListener;
+    }
+
     private String nameF = "NO NAME";
 
     public void setLang_chat(String lang_chat) {
@@ -175,6 +185,9 @@ lang_c = v.findViewById(R.id.channel);
         send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(clikS != null){
+                    clikS.OnSend();
+                }
                 SendMessage();
             }
         });
