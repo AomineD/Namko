@@ -71,6 +71,10 @@ public class NamkoFragment extends Fragment {
         databaseReference = database.getReference(lang_chat);
 
         SetupRef();
+
+        if(lang_c != null){
+            lang_c.setText(lang_chat);
+        }
     }
 
     private String url_background = "";
