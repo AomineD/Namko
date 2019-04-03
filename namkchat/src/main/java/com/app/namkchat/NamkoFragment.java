@@ -60,6 +60,17 @@ public class NamkoFragment extends Fragment {
 
     public void setLang_chat(String lang_chat) {
         this.lang_chat = lang_chat;
+
+        if(database != null){
+            database = null;
+            messageArrayList.clear();
+            adapter.notifyDataSetChanged();
+        }
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference(lang_chat);
+
+        SetupRef();
     }
 
     private String url_background = "";
@@ -170,8 +181,7 @@ lang_c = v.findViewById(R.id.channel);
         send_msg = v.findViewById(R.id.send_btn);
 
 
-        database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference(lang_chat);
+
         if(isDebug)
         Log.e("MAIN", "onCreateView: CHAT => "+lang_chat+" BASE DE DATOS => "+databaseReference.getRef().toString());
         adapter = new MessageAdapter(getContext(), messageArrayList);
@@ -201,7 +211,7 @@ lang_c = v.findViewById(R.id.channel);
             }
         });
 
-        SetupRef();
+
 
         bk = v.findViewById(R.id.backgr);
 
@@ -289,26 +299,28 @@ public void setDebg (boolean ss){
     }
 
 
-    private void SendMessage(){
-        MessageSend mss = new MessageSend();
+    private void SendMessage() {
+        if (database != null) {
+            MessageSend mss = new MessageSend();
 
-mss.setHora(ServerValue.TIMESTAMP);
+            mss.setHora(ServerValue.TIMESTAMP);
 
-String men = message.getText().toString();
+            String men = message.getText().toString();
 /*
 if(isRudness(men)){
     men = transform(men);
 }
 */
-        mss.setMesg(men);
-        mss.setName_of(nameF);
-        mss.setUrlProfilePic(urrPhoto);
-        mss.setType_mensaje("1");
-message.setText("");
-        databaseReference.push().setValue(mss);
-        if(isDebug)
-        Log.e("MAIN", "SendMessage: MENSAJE ENVIADO = "+mss);
-        //adapter.addMessage(mss);
+            mss.setMesg(men);
+            mss.setName_of(nameF);
+            mss.setUrlProfilePic(urrPhoto);
+            mss.setType_mensaje("1");
+            message.setText("");
+            databaseReference.push().setValue(mss);
+            if (isDebug)
+                Log.e("MAIN", "SendMessage: MENSAJE ENVIADO = " + mss);
+            //adapter.addMessage(mss);
+        }
     }
 
 
