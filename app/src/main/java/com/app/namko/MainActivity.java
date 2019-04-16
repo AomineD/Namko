@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         NamkoFragment fr = new NamkoFragment();
-        fr.setBackgdrawable(R.drawable.splash);
+        fr.setBackgdrawable(R.drawable.backgr);
 
         fr.setNameP("Diego Garcia");
         fr.setLang_chat("Latino");
